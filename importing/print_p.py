@@ -1,0 +1,2 @@
+print("test")
+data ="k"

@@ -1,0 +1,42 @@
+a. apa itu machine learning ?
+--mesin yang belajar ges
+--mrngaklukasi kan atau menebak 
+
+c. tradional programing
+--digunakan secara manual dan baik
+
+d. kegunaan maschine learning machine learning
+--digunakan untuk memprediksi masa depan
+--melukan tangkap karena di ajarkan oleh
+--untuk merecap suatu hal
+--estimasi
+--prdiksi
+--clasifkasi
+--klastering
+--asosiasi
+
+e. bukti machine learning
+--self driving
+--predicting an illness
+---targeted emails
+
+---------cara kerja machine learning
+
+training Data => Train the Machine learning => Create Model => testing machine learning dengan input data => evaluasi, jika ada yang salah dan mengulang lagi.
+
+"semakin banyak data yang bergama semakin akurat model tersebut"
+
+---------cara kerja Supervised learning
+menggunakan labeling/target/class
+atau atribut yang mendukung pengambilan label nya
+
+data nya biasanya berupa tabel yang memuat atribut dan akan menabahkan column baru yaitu label nya
+
+belajar menggunakan data yang manual yang sudah di labeling
+
+---------cara kerja Unsupervised learning
+tidak di bimbing bebeda dengan Supervised
+pengelompokan secara otomatis, menglompokan dengan data atau atribut yang sama atau hampir sama [clastering] [mencari kemiripian dengan atribute nya ]
+
+---------Reinforcement learning
+robot catur yang belajar dari kesalahan [paling serm]
