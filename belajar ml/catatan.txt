@@ -1,3 +1,5 @@
+------------------------------------section1
+
 a. apa itu machine learning ?
 --mesin yang belajar ges
 --mrngaklukasi kan atau menebak 
@@ -23,7 +25,6 @@ e. bukti machine learning
 ---------cara kerja machine learning
 
 training Data => Train the Machine learning => Create Model => testing machine learning dengan input data => evaluasi, jika ada yang salah dan mengulang lagi.
-
 "semakin banyak data yang bergama semakin akurat model tersebut"
 
 ---------cara kerja Supervised learning
@@ -40,3 +41,21 @@ pengelompokan secara otomatis, menglompokan dengan data atau atribut yang sama a
 
 ---------Reinforcement learning
 robot catur yang belajar dari kesalahan [paling serm]
+
+-------------------------------------section2
+
+a. data adalah fakta yang di rekam (data itu apa?)
+merekam sesuatu yang nyata dan ada itu adalah data. => biasa di tabelakn
+
+--bagaiman data dihasilkan?
+smart watcth, sosial modia, laptop, drone, Iot, Pena dan yang lainya
+baik secara sengaja ataupun tidak sengaja
+
+--data dakam data mining
+dataset= kumpulan data yang terdiri dari variebl dan record suatu kasus tertentu => misal nya seperti curah hujan
+
+kagle UCI repository dll
+
+--struktur data aset
+
+
