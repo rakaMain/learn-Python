@@ -1,33 +1,34 @@
-------------------------------------section1
+_______________section1_______________
 
-a. apa itu machine learning ?
+| apa itu machine learning ?
 --mesin yang belajar ges
 --mrngaklukasi kan atau menebak 
 
-c. tradional programing
+| tradional programing
 --digunakan secara manual dan baik
 
-d. kegunaan maschine learning machine learning
---digunakan untuk memprediksi masa depan
---melukan tangkap karena di ajarkan oleh
---untuk merecap suatu hal
---estimasi
---prdiksi
---clasifkasi
---klastering
---asosiasi
+| kegunaan maschine learning machine learning
 
-e. bukti machine learning
+1. digunakan untuk memprediksi masa depan
+2. melukan tangkap karena di ajarkan oleh
+3. untuk merecap suatu hal
+4. estimasi
+5. prdiksi
+6. clasifkasi
+7. klastering
+8. asosiasi
+
+| bukti machine learning
 --self driving
 --predicting an illness
 ---targeted emails
 
----------cara kerja machine learning
+| cara kerja machine learning
 
 training Data => Train the Machine learning => Create Model => testing machine learning dengan input data => evaluasi, jika ada yang salah dan mengulang lagi.
 "semakin banyak data yang bergama semakin akurat model tersebut"
 
----------cara kerja Supervised learning
+| cara kerja Supervised learning
 menggunakan labeling/target/class
 atau atribut yang mendukung pengambilan label nya
 
@@ -35,27 +36,145 @@ data nya biasanya berupa tabel yang memuat atribut dan akan menabahkan column ba
 
 belajar menggunakan data yang manual yang sudah di labeling
 
----------cara kerja Unsupervised learning
+| cara kerja Unsupervised learning
 tidak di bimbing bebeda dengan Supervised
 pengelompokan secara otomatis, menglompokan dengan data atau atribut yang sama atau hampir sama [clastering] [mencari kemiripian dengan atribute nya ]
 
----------Reinforcement learning
+| Reinforcement learning
 robot catur yang belajar dari kesalahan [paling serm]
 
--------------------------------------section2
+_______________section2_______________
 
-a. data adalah fakta yang di rekam (data itu apa?)
+| data adalah fakta yang di rekam (data itu apa?)
 merekam sesuatu yang nyata dan ada itu adalah data. => biasa di tabelakn
 
---bagaiman data dihasilkan?
+| bagaiman data dihasilkan?
+
 smart watcth, sosial modia, laptop, drone, Iot, Pena dan yang lainya
 baik secara sengaja ataupun tidak sengaja
 
---data dakam data mining
+| data dakam data mining
+
 dataset= kumpulan data yang terdiri dari variebl dan record suatu kasus tertentu => misal nya seperti curah hujan
 
 kagle UCI repository dll
 
---struktur data aset
+| truktur data aset
 
+data source yang tersedia di internet
 
+_______________section3_______________
+
+| EDA
+| Eploratiry Data ANalysis (EDA)
+
+intuis, data yang di hasilakan di dunia nyata tidak sebagus contoh dataset yang biasa dipakai untuk latihan
+
+data kosong = data yang kotor
+contoh =
+1. nikah
+2. gaji, menjadi missing value
+3. data yang dari Iot tidak optimal kearna ada gangguan
+
+semakin bersih data semakin bersih datanya tersebut
+solusianya dengan cara teknik data preprocessing
+
+| exploratory data ANalysis adalah kegatan meng eklore atau menjelajah dataset sebelum digunakan
+
+_______________section4_______________
+
+| Mengubah nama atribut
+alasan sering kali berupa singkatan atau istilah yang sulit di pahami
+memudahkan untuk mengidentifikasi atribut
+
+etika nama atribute sebaiknya jelas dan tidak memakai menggunakan simbol simbol yang aneh
+
+jika ada dua kata, maka penulisa nya "nama_atribute" agarmenjadi satu suku kata
+
+| impplementasi pandas dan file.csv
+| ngoding #1
+
+import pandas as pd # memasukan data kedalam data dataFrame
+import numpy as np # digunakan untuk perhitungan
+import seaborn as sns # implemetasi
+import matplotlib.pyplot as plt #implementasi
+|
+%matplotlib inline
+sns.set(color_codes=True)
+|
+df = pd.read_csv("data_car.csv")
+df.head(5) # untuk mendisplay top 5 data dari atas
+|
+df.tail(3) # untuk mendisplay top 3 data dari bawah
+|
+df.dtypes # melihat type isi dari atribute   
+
+_______________section5_______________
+
+| tipe data
+di bagi dua yaitu
+1. diskrit = tipe data yang berdasakan perhitungan. contoh : jumlah barang yang kita beli ...
+
+a. berbentuk bulat, countable(menghitung jumlah data yang ada) dan tidak bernilai negatif
+b. dapat berisi data kategori
+c. mudah divisualisasikan seperti chart
+_____
+
+2. konitnu = tipe data yang beridifat pengukuran. contoh : suhu di kutub, tekanan angin, bertat badan, tinggi badan, dan lain lain
+
+a. bisa tidak bilangan bulat
+b. data dapat berubah dari waktu ke waktu
+c. dapat dihitung dari kumlua data tersebut
+
+| dalam data mining 
+
+numerik [tinggi badan]
+kategori [nilai= sedang, tinggi]
+
+setiap data memiliki keunikan masing masing
+
+_______________section6_______________
+
+| Eploratiry data analysis in python
+menyiapkan data sebelum memodelkan atau belajar
+menggunakan EDA [yang paling lama]
+
+| dropping the duplicate rows
+kenapa baris yang sama harus di hapus?
+
+1. kuantitas
+2. kualitas(kenunkan)
+
+karena biar gak capek atau gak ribet, banyak saja tidak cukup tapi mending banyak beda
+
+| duplkat Arrow
+| ngoding #2
+
+df.shape # meg show banyak nya rows, column
+|
+duplicate_rows_df = df[df.duplicated()] # mengcopy df yang punya nilai sama
+print("number of duplicate rows: ", duplicate_rows_df.shape) # menampilkan nya dalam bentuk shape
+|
+df.count() # melihat isi atribute dari setiap rows
+
+| Dropping the missing value or null
+mengisi missing value adalah imputasi
+
+1. menghapus nya
+2. kalo data nya dihapus satu baris nya bakalan hilang donggg
+
+cara mengisi
+
+1. dengan rata rata
+2. mengira ngira
+
+|Menghapus duplikat Arrow
+| ngoding #2
+
+df = df.drop_duplicates() # menghapus yang duplicate
+df.head(6) # menampilkan
+|
+df.count() # melihat hasil dari setiap rows 
+|
+df = df.dropna() # droping the missing value
+df.count()
