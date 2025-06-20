@@ -168,7 +168,7 @@ cara mengisi
 1. dengan rata rata
 2. mengira ngira
 
-|Menghapus duplikat Arrow
+| Menghapus duplikat Arrow
 | ngoding #2
 
 df = df.drop_duplicates() # menghapus yang duplicate
@@ -178,3 +178,55 @@ df.count() # melihat hasil dari setiap rows
 |
 df = df.dropna() # droping the missing value
 df.count()
+
+| Detecting  -------------------------------
+ada nilai yang gak normal atau yang beda dari yang lain
+
+kenapa di analisi? karena ini akan mengacau machine learning belajar
+
+harus gimana? menormalisasi data ini
+
+| Detecting outlier
+| ngoding #3
+
+f = plt.figure(figsize=(12,4))
+f.add_subplot(1,2,1)
+df['HP'].plot(kind='kde')
+f.add_subplot(1,2,2)
+plt.boxplot(df['HP'])
+plt.show()
+
+1. dikrtitisasi (kegiatan mengkolompokan data) agar ada pengelompokan walau setinggi mungkin harga tersebut
+
+
+| data discretization / binnig
+
+mengelompokan data (kecil, sedang, besar)
+
+2. normalisasi minMax caler
+
+| simple fetaure scaling
+
+Xnew = Xold/Xmax
+Xnew = 20/40 
+
+| rescaling min-max
+Xnew = Xold - Xmin/ Xmax - Xmin
+Xnew = 20 - 20 / 40 - 20
+
+| Mean normalization
+
+x = sigma(x)/n 
+90/3 = 30
+
+jadi
+
+Xnew = Xold - Xaverage(mean) / Xmax - Xmin
+20 - 3/40 - 20 = -0.5
+
+| Standardization (Z-score normalization)
+
+zi = x - X / s 
+X = nilai rata
+
+_______________section6_______________
