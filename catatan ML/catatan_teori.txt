@@ -229,4 +229,7 @@ Xnew = Xold - Xaverage(mean) / Xmax - Xmin
 zi = x - X / s 
 X = nilai rata
 
-_______________section6_______________
+
+3;23;17
+
+_______________section7_______________ 

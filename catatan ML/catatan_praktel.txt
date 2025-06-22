@@ -1,0 +1,41 @@
+ _______________section1_______________
+
+setup dan install anaconda
+
+[penjelasan anacond]
+
+Jupyter Notebook
+
+[penjelasan Jupyter Notebook]
+[jelaskan semua opsi dari nav Jupyter Notebook]
+[isi type cell]
+
+menjelaskan tentang =
+
+print
+comment
+type data
+cara kerja cell print nya
+string method
+variable
+
+[mengulang]
+
+______________section2_______________
+
+[apa itu pada]
+[kenapa pakai pandas]
+
+python pandas vs excel
+1. limitation by size
+2. automation
+
+Array yang digunakan adalah dataframe ataumengunakan dua dimensi
+
+[apa itu dataframe]
+[isi dari dataframe]
+
+col one = fetaures
+con tow >= = obeservation
+
+[analogy pandas dengan exel]
