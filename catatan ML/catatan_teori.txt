@@ -232,4 +232,34 @@ X = nilai rata
 
 3;23;17
 
+gak ada yang lebih baik tetapi harus lebih pilih yang labih relevan
+
 _______________section7_______________ 
+
+| One-hot encoding
+mengubah data yang kategorik menjadi numerik
+
+kenapa di ubah ? karena beberapa algoritma menggunakkan data numerik
+
+ada metode cara yang berbeda, kebanyakan menggunakan teknik biner 0 dan 1 dengan membuat tabel
+
+| analisis static sederhana
+
+analisisnis univetiriet [menganalisis dari satu atribute]
+CODE
+df.HP.describe() # mendeskripsiskan sebuah atribute numerik
+
+analisisnis biveriet [menganalisis dari dua atribute]
+fungsi apakah ada korelasi antara dua atribute tersbeut
+HEAT MAPS => untuk mencari korelasi dari semua atrbitue
+
+lalu jika sudah mendapatkan dua yang cocok lalu analisa
+
+dari data diatas korelasi diatas kita bisa mempredkis sebuah kemungkinan dari atribute yang berkolerasi
+
+analisisnis multiveriet [menganalisis dari banyak vairble]
+ 
+ dengan meenetukan atau mencari korelasi dari banyak atribute untuk memprediksi suatu atribute atau lebih
+
+3.55.51
+ _______________section7_______________ 

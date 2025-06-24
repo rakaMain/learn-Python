@@ -47,5 +47,14 @@ np.array([1 ,3],[2,4]) array as rows
 my_dict= {'key',value, ...arg } '' => column name 
 
 
+______________section3______________
 
+pandas Atribute Methods Functions
 
+Atribute adalah isi dari rows data atau colom
+
+function adalah grup yang melakukan atau menjalankan suatu task atau tugas
+
+Methods adalaha fungsi yanga ada di kelas itu sendiri
+
+isi dari semua materi ada di [Basic Attributes, Methods and Functions.ipynb]
