@@ -58,3 +58,35 @@ function adalah grup yang melakukan atau menjalankan suatu task atau tugas
 Methods adalaha fungsi yanga ada di kelas itu sendiri
 
 isi dari semua materi ada di [Basic Attributes, Methods and Functions.ipynb]
+
+adding new column
+df_air[kolombaru] = value
+kalo pke np itu dibuat dulu angka acak nya lalu dimasukin ke colom baru tersebut
+
+______________section3______________
+
+add new column with assign() adn insert()
+
+assign()
+assign digunakan ketika? ketika inginn menambahakn banyak data dengan satu baris code
+
+code =
+df_air.assign(score1=series_1, score2=series_2).head() #buat kolom terus masukin fungsi no nya lalu masukin ke assign
+
+
+insert()
+spesifik number yang ditambahakn jadi columnya kita seusikan sendiri
+file = Add New colum with assign and insert.ipynb
+code =
+df_air.insert(1, 'te', series_1)
+df_air.head()
+
+______________section4______________
+
+1. operasi dalam kolom
+
+df[].sum() untuk melihat jumlahnya
+df.describe() untuk melihatkan semua operasi matematika yang ada di suatu kolom yang numerik
+
+2. operasi di baris
+df[] + dfp[] + df[] lalu di satukan dengan variable lalu kita kalkulasi dengan describe

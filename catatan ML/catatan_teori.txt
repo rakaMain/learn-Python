@@ -254,12 +254,12 @@ fungsi apakah ada korelasi antara dua atribute tersbeut
 HEAT MAPS => untuk mencari korelasi dari semua atrbitue
 
 lalu jika sudah mendapatkan dua yang cocok lalu analisa
-
 dari data diatas korelasi diatas kita bisa mempredkis sebuah kemungkinan dari atribute yang berkolerasi
 
-analisisnis multiveriet [menganalisis dari banyak vairble]
- 
- dengan meenetukan atau mencari korelasi dari banyak atribute untuk memprediksi suatu atribute atau lebih
+bscatterplot bisa juga sebagai alat untuk membuat grafik dari biveriet
 
-3.55.51
- _______________section7_______________ 
+tidak butuh data banyak untuk membaut machine learning 2 atribute juga cukup
+
+analisisnis multiveriet [menganalisis dari banyak vairble lebih dari 3]
+dengan meenetukan atau mencari korelasi dari banyak atribute untuk memprediksi suatu atribute atau lebih
+
