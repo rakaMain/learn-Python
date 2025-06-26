@@ -90,3 +90,12 @@ df.describe() untuk melihatkan semua operasi matematika yang ada di suatu kolom 
 
 2. operasi di baris
 df[] + dfp[] + df[] lalu di satukan dengan variable lalu kita kalkulasi dengan describe
+
+
+______________section5______________
+
+1. menghitung value dari colom dengan count()
+2.sorting dataframe
+3. set_index() dama sort_index()
+
+ada di file The section5 

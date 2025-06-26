@@ -263,3 +263,9 @@ tidak butuh data banyak untuk membaut machine learning 2 atribute juga cukup
 analisisnis multiveriet [menganalisis dari banyak vairble lebih dari 3]
 dengan meenetukan atau mencari korelasi dari banyak atribute untuk memprediksi suatu atribute atau lebih
 
+_______________section8_______________ 
+
+implementasi normalization  min-max
+sklears => adalha banyak fungsi nomalisasi dan algoritma naive bayes 
+
+preposesing adalah kegiaatn menyiapkan data set agar siap di modelkan
