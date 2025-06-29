@@ -99,3 +99,22 @@ ______________section5______________
 3. set_index() dama sort_index()
 
 ada di file The section5 
+
+_______________section6_______________
+
+web scraping with pandas
+project 1
+
+scraping = adalah extrak data dari website
+
+1. read .csv from a url
+
+a. mengambil data di website dan membacanya
+b. masukan ke sebuah variebl
+c. menampilkan nya
+d. mengganti nama colom ya yang bisa dimerngerti
+e. menampilkan data nya lagi
+
+2. read .csv from multiple csv
+ ======================================================
+ lakukan pengambilan data secara online jadi ngerjain ini nya pagi pagi aja

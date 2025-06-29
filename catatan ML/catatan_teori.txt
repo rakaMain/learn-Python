@@ -269,3 +269,8 @@ implementasi normalization  min-max
 sklears => adalha banyak fungsi nomalisasi dan algoritma naive bayes 
 
 preposesing adalah kegiaatn menyiapkan data set agar siap di modelkan
+
+=================================================
+
+membuat atau mengunduh sebuah data bebahasa indonesia dengan kolom
+nama, status rumah, gaji, umur, daerah

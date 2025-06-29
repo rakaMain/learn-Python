@@ -1,0 +1,362 @@
+Berikut detail **Hari 1**—Eksplorasi Data—dengan penjelasan tools, teknologi, dan langkah‑langkahnya secara mendalam.
+
+---
+
+## 🛠️ Tools & Teknologi yang Digunakan
+
+1. **Python 3.x**
+2. **Jupyter Notebook**
+
+   * Lingkungan interaktif untuk menulis kode, dokumentasi, dan visualisasi sekaligus.
+   * Jalankan `jupyter notebook` di terminal, lalu buka browser.
+3. **Library Python**
+
+   * **pandas**: manipulasi dan analisis data tabular.
+   * **NumPy**: operasi numerik, array, statistik dasar.
+   * **Matplotlib**: visualisasi dasar (histogram, scatter plot, heatmap).
+   * *(Opsional untuk visualisasi lebih cepat)* **seaborn**: wrapper atas Matplotlib untuk plot statistik.
+4. **Text Editor / IDE** (opsional)
+
+   * VSCode, PyCharm, atau editor lain untuk menulis kode pendukung (misal `requirements.txt`).
+
+---
+
+## 📑 Persiapan Lingkungan Kerja
+
+1. **Buat virtual environment** (direkomendasikan):
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate       # Linux/Mac  
+   venv\Scripts\activate          # Windows  
+   ```
+2. **Install library**:
+
+   ```bash
+   pip install pandas numpy matplotlib seaborn jupyter
+   ```
+3. **Struktur folder**:
+
+   ```
+   titanic-ml-project/
+   ├── data/
+   │   └── train_titanic_indo_100.csv
+   └── notebooks/
+       └── 01_Eksplorasi_Data_Titanic.ipynb
+   ```
+
+---
+
+## 📝 Langkah‑Langkah Hari 1: Eksplorasi Data
+
+### 1. Buat Notebook Baru
+
+* Nama: `01_Eksplorasi_Data_Titanic.ipynb`
+* Di sel pertama, tulis judul dan tujuan singkat:
+
+  ```markdown
+  # Eksplorasi Data Titanic  
+  Tujuan: Memahami struktur data, distribusi fitur, dan masalah missing values.
+  ```
+
+### 2. Import Library
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+# optional: import seaborn as sns
+```
+
+### 3. Muat Data
+
+```python
+df = pd.read_csv("../data/train_titanic_indo_100.csv")
+```
+
+### 4. Lihat Sekilas Data
+
+* **5 baris pertama**: `df.head()`
+* **Struktur & tipe data**: `df.info()`
+* **Statistik ringkas (numerik)**: `df.describe()`
+* **Statistik ringkas (kategorikal)**: `df.describe(include=['O'])`
+
+> ✏️ Catatan: Perhatikan kolom bertipe objek (“O”)—biasanya `Jenis_Kelamin`, `Pelabuhan_Naik`, `Kabin`.
+
+### 5. Cek Missing Values
+
+```python
+df.isnull().sum()
+```
+
+* Identifikasi kolom dengan banyak `NaN` (misal: `Kabin`, `Usia`).
+* Catat persentase missing per kolom:
+
+  ```python
+  (df.isnull().mean() * 100).round(2)
+  ```
+
+### 6. Univariate Analysis (Satu‑satu Fitur)
+
+* **Numerik** (`Usia`, `Harga_Tiket`)
+
+  ```python
+  df['Usia'].hist(bins=20)
+  plt.title("Distribusi Usia")
+  plt.xlabel("Usia")
+  plt.ylabel("Frekuensi")
+  plt.show()
+
+  df['Harga_Tiket'].hist(bins=20)
+  plt.title("Distribusi Harga Tiket")
+  plt.show()
+  ```
+* **Kategori** (`Jenis_Kelamin`, `Kelas_Tiket`, `Pelabuhan_Naik`, `Selamat`)
+
+  ```python
+  df['Jenis_Kelamin'].value_counts().plot.bar()
+  plt.title("Jumlah Pria vs Wanita")
+  plt.show()
+  ```
+
+*(Jika pakai seaborn: `sns.countplot(x='Jenis_Kelamin', data=df)`).*
+
+### 7. Bivariate Analysis (Hubungan dengan Target)
+
+* **Boxplot Usia vs Selamat**
+
+  ```python
+  df.boxplot(column='Usia', by='Selamat')
+  plt.title("Usia vs Status Selamat")
+  plt.suptitle("")
+  plt.show()
+  ```
+* **Barplot Kelas\_Tiket vs Rate Selamat**
+
+  ```python
+  rate_by_class = df.groupby('Kelas_Tiket')['Selamat'].mean()
+  rate_by_class.plot.bar()
+  plt.title("Tingkat Keselamatan per Kelas Tiket")
+  plt.ylabel("Proporsi Selamat")
+  plt.show()
+  ```
+
+### 8. Korelasi Fitur Numerik
+
+* Hitung korelasi: `corr = df.corr()`
+* Visualisasikan heatmap:
+
+  ```python
+  plt.matshow(corr)
+  plt.colorbar()
+  plt.xticks(range(len(corr)), corr.columns, rotation=90)
+  plt.yticks(range(len(corr)), corr.columns)
+  plt.title("Heatmap Korelasi Fitur Numerik")
+  plt.show()
+  ```
+
+---
+
+## 🎯 Hasil yang Diharapkan di Akhir Hari 1
+
+1. **Notebook lengkap** dengan kode dan visualisasi.
+2. **Insight awal**:
+
+   * Fitur apa yang paling berkorelasi dengan `Selamat`.
+   * Kolom mana yang punya banyak missing values.
+   * Distribusi dasar tiap fitur.
+
+Dengan pemahaman ini, kamu siap melangkah ke **Hari 2**: pembersihan data dan prapemrosesan. Semangat eksplorasi!
+
+Berikut penjelasan **detail** setiap baris kode dan atribut yang kita pakai di Hari 1, lengkap dengan “🔑 Belajar” khusus untuk kasus proyek Titanic:
+
+---
+
+### 1. `pd.read_csv(path)`
+
+**Fungsi:**
+
+* Membaca file CSV menjadi objek `DataFrame` Pandas.
+
+**Kasus Titanic:**
+
+* `df = pd.read_csv("../data/train_titanic_indo_100.csv")`
+  → Mengimpor 100 baris data penumpang yang sudah disintesis ke dalam `df`.
+
+**🔑 Belajar:**
+
+* Pastikan path benar! Jika error “FileNotFound”, cek kembali struktur folder atau nama file.
+* DataFrame adalah fondasi: semua manipulasi data selanjutnya berangkat dari sini.
+
+---
+
+### 2. `df.head(n)`
+
+**Fungsi:**
+
+* Menampilkan **n** baris pertama (default n=5).
+
+**Kasus Titanic:**
+
+* `df.head()`
+  → Intip kolom seperti `ID_Penumpang`, `Selamat`, `Usia`, dsb., plus nilai-nilai awal untuk memastikan format dan tipe sudah sesuai.
+
+**🔑 Belajar:**
+
+* Selalu mulai dengan inspeksi visual data “mentah” untuk tahu apa yang sedang kamu hadapi.
+
+---
+
+### 3. `df.info()`
+
+**Fungsi:**
+
+* Menunjukkan ringkasan: nama kolom, jumlah non-null, tipe data (`int64`, `float64`, `object`).
+
+**Kasus Titanic:**
+
+* `df.info()`
+  → Lihat berapa banyak baris di tiap kolom yang berisi nilai (non-null).
+  → Hadirnya tipe `object` mengindikasikan kolom teks/kategori (`Jenis_Kelamin`, `Pelabuhan_Naik`).
+
+**🔑 Belajar:**
+
+* Kolom dengan banyak `null` butuh strategi: imputasi atau di-drop.
+* Tipe data object perlu di-encode nanti.
+
+---
+
+### 4. `df.describe()` & `df.describe(include=['O'])`
+
+**Fungsi:**
+
+* `describe()` (numerik): mean, std, min/max, kuartil.
+* `describe(include=['O'])` (kategorikal): count, unique, top (nilai paling sering), freq (frekuensi top).
+
+**Kasus Titanic:**
+
+* `df.describe()`
+  → Dapat tahu bahwa rata‑rata usia \~30, harga tiket di antara 10–100.
+* `df.describe(include=['O'])`
+  → Tahu “wanita” muncul sebanyak X kali, “Southampton” dominan sebagai pelabuhan naik.
+
+**🔑 Belajar:**
+
+* Statistik ringkas membantu kenali outlier (usia >80?), serta imbalance kategori (misal 60% naik di Southampton).
+
+---
+
+### 5. `df.isnull().sum()` & `(df.isnull().mean()*100).round(2)`
+
+**Fungsi:**
+
+* `isnull()` menghasilkan DataFrame Boolean (True untuk NaN).
+* `.sum()` menghitung jumlah NaN per kolom.
+* `.mean()` menghitung proporsi (misal 0.10 artinya 10%).
+* `*100` dan `.round(2)` memformat jadi persentase dengan 2 desimal.
+
+**Kasus Titanic:**
+
+* Jika `Usia` punya 5 NaN, kita tahu \~5% data usia hilang—perlu imputasi.
+* Jika `Kabin` 50 NaN, mungkin lebih baik drop atau buat kategori “Unknown”.
+
+**🔑 Belajar:**
+
+* Proporsi NaN penting: di bawah 5% bisa imputasi median; di atas 30% pertimbangkan drop kolom.
+
+---
+
+### 6. `df['Kolom'].hist(bins=20)`
+
+**Fungsi:**
+
+* Membuat histogram dari kolom numerik.
+* `bins` menentukan banyaknya interval.
+
+**Kasus Titanic:**
+
+* `df['Usia'].hist(bins=20)`
+  → Lihat apakah distribusi usia mendekati normal, atau banyak anak-anak (Usia <10) yang perlu di-handle khusus.
+
+**🔑 Belajar:**
+
+* Bentuk sebaran memberi insight: misal tampak dua puncak (anak kecil & dewasa) → mungkin pisahkan usia anak vs dewasa sebagai fitur baru.
+
+---
+
+### 7. `df['Kolom'].value_counts().plot.bar()`
+
+**Fungsi:**
+
+* `value_counts()` menghitung frekuensi tiap kategori.
+* `.plot.bar()` menampilkan bar chart dari frekuensi tersebut.
+
+**Kasus Titanic:**
+
+* `df['Jenis_Kelamin'].value_counts().plot.bar()`
+  → Bandingkan jumlah “pria” vs “wanita”.
+* Jika imbalance, model mungkin perlu di-tune (misal class\_weight).
+
+**🔑 Belajar:**
+
+* Imbalance kategori utama (misal 70% pria) bisa mempengaruhi performa model—catat untuk evaluasi nanti.
+
+---
+
+### 8. `df.boxplot(column='Usia', by='Selamat')`
+
+**Fungsi:**
+
+* Membuat boxplot kolom numerik berdasarkan kategori `by`.
+* Menunjukkan median, IQR (interquartile range), dan outlier.
+
+**Kasus Titanic:**
+
+* `df.boxplot(column='Usia', by='Selamat')`
+  → Bandingkan distribusi usia penumpang yang selamat vs tidak.
+  → Misal, jika median usia yang selamat lebih rendah, usia mungkin berpengaruh turun naiknya peluang selamat.
+
+**🔑 Belajar:**
+
+* Boxplot bivariate langsung memperlihatkan apakah satu fitur numerik berdampak signifikan ke kelas target.
+
+---
+
+### 9. `df.groupby('Kelas_Tiket')['Selamat'].mean()`
+
+**Fungsi:**
+
+* `groupby()` mengelompokkan baris berdasarkan satu kolom.
+* `.mean()` menghitung rata‑rata kolom target di dalam tiap grup.
+
+**Kasus Titanic:**
+
+* `df.groupby('Kelas_Tiket')['Selamat'].mean()`
+  → Kalau kelas 1 punya rata‑rata 0.6, artinya 60% penumpang kelas 1 selamat.
+  → Data empiris ini sering dipakai untuk membuat fitur ratio atau baseline rule sederhana.
+
+**🔑 Belajar:**
+
+* Teknik ini membantu bikin fitur baru (seperti survival rate per kelas) atau sekadar insight “kelas satu lebih berpeluang selamat”.
+
+---
+
+### 10. `df.corr()` & `plt.matshow(corr)`
+
+**Fungsi:**
+
+* `corr()` menghasilkan matriks korelasi Pearson antar kolom numerik.
+* `matshow()` menampilkan matriks sebagai heatmap.
+
+**Kasus Titanic:**
+
+* Cek korelasi `Usia` vs `Harga_Tiket`, `Total_Keluarga` vs `Selamat`, dsb.
+* Fitur yang berkorelasi tinggi dengan `Selamat` (misal >0.2) jadi kandidat penting di model.
+
+**🔑 Belajar:**
+
+* Korelasi tidak berarti kausalitas, tapi fitur dengan korelasi rendah (<0.05) bisa dipertimbangkan di-drop untuk menyederhanakan model.
+
+---
+
+Dengan pemahaman fungsi dan atribut di atas, kamu tidak hanya **menjalankan kode**, tapi juga **mengerti alasan** di balik setiap langkah eksplorasi. Ini dasar penting sebelum masuk tahap cleaning, feature engineering, dan modeling! Jika ada bagian yang masih rancu atau ingin contoh visual lebih lanjut, beri tahu saja. 😊
